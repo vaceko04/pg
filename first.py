@@ -8,3 +8,4 @@ def sude_nebo_liche(cislo):
 if __name__ == "__main__":
     sude_nebo_liche(5)
     sude_nebo_liche(1000000)
+    sude_nebo_liche(123)
