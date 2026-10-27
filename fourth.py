@@ -50,7 +50,7 @@ if __name__ == "__main__":
     obsazene_pozice = {(4, 4), (5, 5), (3, 5)}
 
     # Testy pro krále
-    print("KRAL")
+    print("KRÁL")
     print(je_tah_mozny(kral, (5, 5), obsazene_pozice))  # False (obsazeno)
     print(je_tah_mozny(kral, (5, 4), obsazene_pozice))  # True (o 1 pole dolů)
     print(je_tah_mozny(kral, (6, 6), obsazene_pozice))  # False (příliš daleko - o 2 pole)
