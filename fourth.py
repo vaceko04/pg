@@ -12,14 +12,15 @@ def je_tah_mozny(figurka, cilova_pozice, obsazene_pozice):
     
     # 1. KROK: Je cílová pozice na šachovnici? (řádky i sloupce 1 až 8)
     # Zde student napíše jednoduchou podmínku s and / or
-    if cilova_pozice < (1, 1) or cilova_pozice > (8, 8):
-        return False, "mimo šachovnici"
+    radek, sloupec = cilova_pozice
+    if not (1 <= radek <= 8 and 1 <= sloupec <= 8):
+        return False
 
     
     # 2. KROK: Je cílová pozice volná?
     # Nápověda: operátor 'in' nebo 'not in' pro množiny
     if cilova_pozice in obsazene_pozice:
-        return False, "obsazeno"
+        return False
     
     # 3. KROK: Pohyb podle typu figury
     if typ == "král":
@@ -30,16 +31,16 @@ def je_tah_mozny(figurka, cilova_pozice, obsazene_pozice):
         if radek_rozdil <= 1 and sloupec_rozdil <= 1:
             return True
         else:
-            return False, "příliš daleko - o 2 pole "
+            return False
         
     elif typ == "jezdec":
         # Jezdec se pohybuje ve tvaru L (např. rozdíl řádků je 2 a sloupců 1, nebo naopak).
         radek_rozdil = abs(cilova_pozice[0] - aktualni_pozice[0])
         sloupec_rozdil = abs(cilova_pozice[1] - aktualni_pozice[1])
         if (radek_rozdil == 2 and sloupec_rozdil == 1) or (radek_rozdil == 1 and sloupec_rozdil == 2):
-            return True, "tvar L"
+            return True
         else:
-            return False, "příliš daleko - ne L tvar"
+            return False
         
     return False
 
