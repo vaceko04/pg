@@ -183,6 +183,7 @@ class King(Piece):
 
 
 if __name__ == "__main__":
+    
     piece = Knight("black", (1, 2))
     print(piece)
     print(piece.possible_moves())
